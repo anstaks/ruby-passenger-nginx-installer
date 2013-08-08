@@ -42,10 +42,12 @@ If you using Mysql, you should set up user and db, let's do that:
 ```bash
 mysql -u root -p
 CREATE USER 'username'@'localhost' IDENTIFIED BY 'userpassword';
-CREATE DATABASE `userdb` CHARACTER SET utf8 COLLATE utf8_general_ci;
-GRANT ALL PRIVILEGES ON userdb.* TO 'username'@'localhost' IDENTIFIED BY 'userpassword';
+CREATE DATABASE `dbname` CHARACTER SET utf8 COLLATE utf8_general_ci;
+GRANT ALL PRIVILEGES ON dbname.* TO 'username'@'localhost' IDENTIFIED BY 'userpassword';
 exit;
 ```
+
+For look in log file, you can use: tail -f /opt/nginx/logs/error.log
 
 Enjoy!
 
