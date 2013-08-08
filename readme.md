@@ -1,28 +1,36 @@
-# One line installer for Ruby 1.9.3, Phusion Passenger and Nginx on Ubuntu 12.04 LTS
+# One line installer for Ruby 2.0, Phusion Passenger and Nginx on Ubuntu 12.04 LTS
 
-This script will install an Nginx/Passenger/Ruby web stack to run Rails apps. This was written for and tested with Ubuntu 12.04 LTS on Amazon EC2. 
-
-I decided to consolidate everything into a single line as a challenge for myself after having to setup this server environment many times. This should speed things up. :)
-
-Once you start up an EC2 instance, log in and run this one command:
+Enter to your server as root, and run this one command:
 
 ```bash
 sudo apt-get install -y git && git clone git://github.com/anstaks/ruby-passenger-nginx-installer.git && bash ./ruby-passenger-nginx-installer/install.sh
 ```
 
-It will run through an auto install process. 
+It will run through an auto install process. You will need set password for Mysql.
 
-Once it is finished, you should have Nginx running and you can start adding your Rails apps.
+Once it is finished, you should set
+```bash
+source /usr/local/rvm/scripts/rvm
+rvm list
+```
+
+Then you should generate ssh-key, and put it into git repository
+```bash
+ssh-keygen
+cat ~/.ssh/id_rsa.pub
+```
+
+Then you will be need git clone your project in custom folder, for example /home/. And setting up nginx server for your app.
+
 
 Enjoy!
 
-Leonard Teo  
-CEO, Developer  
-[Ballistiq](http://www.ballistiq.com)
+Anton Borzenko  
+Front-end Developer, Ruby Developer  
 
 ## What this will install
 
-* Ruby 1.9.3 (p429) from source with bundler
+* Ruby 2.0 with RVM
 * Nginx (including init.d and logrotate tasks)
 * Phusion Passenger
 * ImageMagick (which we use all the time for things like Paperclip)
@@ -37,6 +45,4 @@ sudo service nginx restart
 
 ### Credits
 
-* The base of this came from [Chris Oliver](http://excid3.com/blog/setting-up-ubuntu-12-04-with-ruby-1-9-3-nginx-passenger-and-postgresql-or-mysql/).
-* The Nginx start/stop init.d script came from [Linode](http://library.linode.com/).
-* The Nginx ubuntu log rotation config came from [Mell Zamora](http://www.mellzamora.com/installing-nginx-on-ubuntu-and-debian/)
+* The base of this came from [Leonard Teo](http://www.leonardteo.com/2012/11/install-ruby-on-rails-on-ubuntu-server/).
