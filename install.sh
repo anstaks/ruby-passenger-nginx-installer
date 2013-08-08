@@ -17,13 +17,8 @@ sudo apt-get -y install zip unzip imagemagick
 sudo apt-get -y install libmysql++-dev
 
 # Install Ruby
-curl -L get.rvm.io | bash -s stable
-source ~/.rvm/scripts/rvm
-rvm requirements
-rvm install 2.0.0
-rvm use 2.0.0 --default
-rvm rubygems current
-gem install rails --no-ri --no-rdoc
+curl -L https://get.rvm.io | bash -s stable --ruby
+source /usr/local/rvm/scripts/rvm
 
 if ! type bundle > /dev/null; then
 	sudo gem install bundler
