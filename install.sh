@@ -21,13 +21,13 @@ sudo apt-get -y install libmysql++-dev
 if ! type ruby > /dev/null; then
 	mkdir ~/src
 	cd ~/src
-	wget http://ftp.ruby-lang.org/pub/ruby/1.9/ruby-1.9.3-p429.tar.gz
-	tar -zxf ruby-1.9.3-p429.tar.gz
-	cd ruby-1.9.3-p429
-	./configure
-	make
-	sudo make install
-	echo "gem: --no-ri --no-rdoc" >> ~/.gemrc
+	curl -L get.rvm.io | bash -s stable
+	source ~/.rvm/scripts/rvm
+	rvm requirements
+	rvm install 2.0.0
+	rvm use 2.0.0 --default
+	rvm rubygems current
+	gem install rails --no-ri --no-rdoc
 fi
 
 # Need this if ruby dev headers are not there
@@ -52,5 +52,6 @@ sudo update-rc.d -f nginx defaults
 # Add log rotation to nginx
 sudo cp $BASEDIR/nginx.logrotate /etc/logrotate.d/nginx
 
+sudo apt-get install mysql-server mysql-client
 # Use service to start nginx
 sudo service nginx start
