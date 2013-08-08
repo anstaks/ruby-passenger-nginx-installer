@@ -20,8 +20,8 @@ sudo apt-get -y install libmysql++-dev
 if ! type ruby > /dev/null; then
 	curl -L https://get.rvm.io | bash -s stable --ruby
 fi
-source /usr/local/rvm/scripts/rvm
 
+# Install Bundler
 if ! type bundle > /dev/null; then
 	gem install bundler
 fi
