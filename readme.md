@@ -1,5 +1,7 @@
 # One line installer for Ruby 2.0, Phusion Passenger and Nginx on Ubuntu 12.04 LTS
 
+If rebuild server, you will need: ssh-keygen -R hostname
+
 Enter to your server as root, and run this one command:
 
 ```bash
