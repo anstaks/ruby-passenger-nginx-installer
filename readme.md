@@ -47,6 +47,13 @@ GRANT ALL PRIVILEGES ON dbname.* TO 'username'@'localhost' IDENTIFIED BY 'userpa
 exit;
 ```
 
+For deploying:
+```bash
+export RAILS_ENV=production
+bundle install --deployment
+rake db:migrate
+```
+
 For look in log file, you can use: tail -f /opt/nginx/logs/error.log
 
 Enjoy!
