@@ -22,6 +22,19 @@ cat ~/.ssh/id_rsa.pub
 
 Then you will be need git clone your project in custom folder, for example /home/. And setting up nginx server for your app.
 
+Edit your Nginx config file at /opt/nginx/conf/nginx.conf. Add this in:
+
+```bash
+server {
+    listen 80;
+    server_name www.your_host_name.com;
+    root /home/app/public; 
+    passenger_enabled on;
+
+    # For file uploads
+    client_max_body_size 20m;
+}
+```
 
 Enjoy!
 
