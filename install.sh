@@ -17,18 +17,20 @@ sudo apt-get -y install zip unzip imagemagick
 sudo apt-get -y install libmysql++-dev
 
 # Install Ruby
-curl -L https://get.rvm.io | bash -s stable --ruby
+if ! type ruby > /dev/null; then
+	curl -L https://get.rvm.io | bash -s stable --ruby
+fi
 source /usr/local/rvm/scripts/rvm
 
 if ! type bundle > /dev/null; then
-	sudo gem install bundler
+	gem install bundler
 fi
 
 # Install Passenger - which will install Nginx
 
 if [ ! -d /opt/nginx ]; then
-	sudo gem install passenger
-	sudo passenger-install-nginx-module --auto --prefix=/opt/nginx --auto-download
+	gem install passenger
+	passenger-install-nginx-module --auto --prefix=/opt/nginx --auto-download
 fi
 
 # Install the control nginx control script
