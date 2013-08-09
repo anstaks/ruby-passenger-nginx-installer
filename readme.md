@@ -49,6 +49,7 @@ GRANT ALL PRIVILEGES ON dbname.* TO 'username'@'localhost' IDENTIFIED BY 'userpa
 exit;
 ```
 
+
 For deploying:
 ```bash
 export RAILS_ENV=production
@@ -56,6 +57,12 @@ bundle install --deployment
 rake db:migrate
 rake assets:clean assets:precompile
 ```
+
+If you had error on json when bunde install, do that:
+```bash
+sudo apt-get install ruby1.9.1-dev
+```
+
 
 For look in log file, you can use: tail -f /opt/nginx/logs/error.log
 
