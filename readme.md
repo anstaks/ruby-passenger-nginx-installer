@@ -40,6 +40,8 @@ server {
 
 If you using Mysql, you should set up user and db, let's do that:
 ```bash
+sudo apt-get install mysql-server mysql-client
+
 mysql -u root -p
 CREATE USER 'username'@'localhost' IDENTIFIED BY 'userpassword';
 CREATE DATABASE `dbname` CHARACTER SET utf8 COLLATE utf8_general_ci;
