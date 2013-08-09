@@ -48,7 +48,13 @@ CREATE DATABASE `dbname` CHARACTER SET utf8 COLLATE utf8_general_ci;
 GRANT ALL PRIVILEGES ON dbname.* TO 'username'@'localhost' IDENTIFIED BY 'userpassword';
 exit;
 ```
-
+You need set chmod for your app:
+```bash
+chmod 777 app
+chmod -R 777 app/log
+mkdir app/tmp
+chmod -R 777 app/tmp
+```
 
 For deploying:
 ```bash
@@ -64,7 +70,10 @@ sudo apt-get install ruby1.9.1-dev
 ```
 
 
-For look in log file, you can use: tail -f /opt/nginx/logs/error.log
+For look in log file, you can use: 
+```bash
+tail -f /opt/nginx/logs/error.log
+```
 
 Enjoy!
 
