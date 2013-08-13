@@ -98,3 +98,19 @@ sudo service nginx restart
 ### Credits
 
 * The base of this came from [Leonard Teo](http://www.leonardteo.com/2012/11/install-ruby-on-rails-on-ubuntu-server/).
+
+### Make import/export mysql db
+To export:
+```bash
+mysqldump -u mysql_user -p DATABASE_NAME > backup.sql
+```
+
+To import:
+```bash
+mysql -u mysql_user -p DATABASE < backup.sql
+```
+
+To copy from remote server to local folder
+```bash
+scp root@ip:/home/app/backup.sql .
+```
